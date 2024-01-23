@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project html</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="../style.css">
+
+
+
+</head>
+
+<body>
+
+    <!-- custom cursors  -->
+
+    <header>
+
+        <a href="#" class="logo"> <span>ELLOUMI</span> Mohamed </a>
+
+        <nav class="navbar">
+            <a href="home.html">Accueil</a>
+            <a href="about.html">A propos</a>
+            <a href="service.html">services</a>
+            <a href="experience.html">Formation</a>
+            <a href="formation.html">Expérience</a>
+            <a href="#">quiz</a>
+            <a href="contact.html">contact</a>
+        </nav>
+        <div class="follow">
+            <a href="https://www.facebook.com/mohamed.elloumi.549" class="fab fa-facebook-f"></a>
+            <a href="www.linkedin.com/in/mohamed-elloumi-" class="fab fa-linkedin"></a>
+        </div>
+
+    </header>
+<section>
+      
+    <h1 class="ml12">QUIZ</h1>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <style>
+        .ml12 {
+            font-weight: 900;
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 0.5em;
+            padding-left: 10%;
+            padding-top: 10%;
+        }
+
+        .ml12 .letter {
+            display: inline-block;
+            line-height: -3em;
+        }
+    </style>
+    <div class="quiz-container" id="quiz">
+        <div class="quiz-header">
+            <h2 id="question">Question Text</h2>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" id="a" class="answer">
+                    <label for="a" id="a_text">Answer</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="b" class="answer">
+                    <label for="b" id="b_text">Answer</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="c" class="answer">
+                    <label for="c" id="c_text">Answer</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="d" class="answer">
+                    <label for="d" id="d_text">Answer</label>
+                </li>
+            </ul>
+        </div>
+        <button id="submit">Submit</button>
+    </div>
+    <script>
+        var textWrapper = document.querySelector('.ml12');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({ loop: true })
+            .add({
+                targets: '.ml12 .letter',
+                translateX: [40, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 500 + 30 * i
+            }).add({
+                targets: '.ml12 .letter',
+                translateX: [0, -30],
+                opacity: [1, 0],
+                easing: "easeInExpo",
+                duration: 1100,
+                delay: (el, i) => 100 + 30 * i
+            });
+    </script>
+    <script>
+        /*(tableau d'objets contenant les questions, les réponses et les réponses correctes)*/
+        const quizData = [
+            {
+                question: "Quelle organisation définit les standards Web?",
+                a: "IBM Corporation",
+                b: "World Wide Web Consortium",
+                c: "Microsoft Corporation",
+                correct: "b",
+            },
+            {
+                question: " HTML utilise des ______?",
+                a: " Balises définis par l’utilisateur",
+                b: "Balises prédéfinis",
+                c: "Balises fixes définis par le langage",
+                d: " Balises uniquement pour les liens",
+                correct: "d",
+            },
+            {
+                question: "HTML a été proposé pour la première fois l’année ___.",
+                a: "1980",
+                b: "1990",
+                c: "1995",
+                d: " 2000",
+                correct: "b",
+            },
+            {
+                question: "Qui est l’auteur principal du HTML? ",
+                a: "Brendan Eich",
+                b: "Tim Berners-Lee",
+                c: "Développeur web",
+                d: "Google Inc",
+                correct: "b",
+            },
+            {
+                question: "Si nous souhaitons définir le style d’un seule élément, quel sélecteur css utiliserons-nous ?",
+                a: "id",
+                b: " text",
+                c: "class",
+                d: "name",
+                correct: "a",
+            },
+            {   question: "Quel est le rôle principal des balises HTML?",
+                a: "Définir le style visuel des pages web",
+                b: "Structurer le contenu des pages web",
+                c: "Gérer les interactions utilisateur",
+                d: "Contrôler les fonctions du serveur",
+                correct: "b",
+            },
+            {
+                question: "Quelle est la balise utilisée pour créer un lien hypertexte en HTML?",
+                a: "<link>",
+                b: "<a>",
+                c: "<href>",
+                d: "<url>",
+                correct: "b",
+
+            },
+            {
+                question: "Quelle balise est utilisée pour insérer une image dans une page HTML?",
+                a: "<img>",
+                b: "<picture>",
+                c: "<figure>",
+                d: "<image>",
+                correct: "a",
+
+            },
+            {   question: "Quelle propriété CSS est utilisée pour définir la couleur du texte d'un élément?",
+                a: "color",
+                b: "text-color",
+                c: "font-color",
+                d: "foreground-color",
+                correct: "a",
+            },
+            {   question: "Quelle propriété CSS est utilisée pour définir la taille de la police d'un texte?",
+                a: "font-size",
+                b: "text-size",
+                c: "size",
+                d: "font-height",
+                correct: "a",
+            },
+            {
+                question: "Quelle déclaration est utilisée pour créer une variable en JavaScript?",
+                a: "let myVar = 5;",
+                b: "variable myVar = 5;",
+                c: "create myVar = 5;",
+                d: "var myVar: 5;",
+                correct: "a",
+            },{
+                question: "Quelle fonction JavaScript est utilisée pour afficher une boîte de dialogue avec un message?",
+                a: "alert()",
+                b: "prompt()",
+                c: "confirm()",
+                d: "message()",
+                correct: "a",
+
+            }
+        ];/*référencer les éléments HTML associés dans la page.*/
+        const quiz = document.getElementById('quiz')
+        const answerEls = document.querySelectorAll('.answer')
+        const questionEl = document.getElementById('question')
+        const a_text = document.getElementById('a_text')
+        const b_text = document.getElementById('b_text')
+        const c_text = document.getElementById('c_text')
+        const d_text = document.getElementById('d_text')
+        const submitBtn = document.getElementById('submit')
+        let currentQuiz = 0
+        let score = 0
+        /*appelée au démarrage et lorsqu'un utilisateur utilise la variable currentQuiz pour déterminer quelle question du tableau quizData doit être affichée. */
+        loadQuiz()
+        function loadQuiz() {
+            deselectAnswers()
+            const currentQuizData = quizData[currentQuiz]
+            questionEl.innerText = currentQuizData.question
+            a_text.innerText = currentQuizData.a
+            b_text.innerText = currentQuizData.b
+            c_text.innerText = currentQuizData.c
+            d_text.innerText = currentQuizData.d
+        }
+        /*La fonction deselectAnswers() désélectionne toutes les réponses précédemment sélectionnées par l'utilisateur*/
+        function deselectAnswers() {
+            answerEls.forEach(answerEl => answerEl.checked = false)
+        }
+        /*La fonction getSelected() parcourt toutes les réponses possibles (answerEls) et récupère l'ID de la réponse sélectionnée par l'utilisateur.*/
+        function getSelected() {
+            let answer
+            answerEls.forEach(answerEl => {
+                if (answerEl.checked) {
+                    answer = answerEl.id
+                }
+            })
+            return answer
+        }
+        submitBtn.addEventListener('click', () => {
+            const answer = getSelected()
+            if (answer) {
+                if (answer === quizData[currentQuiz].correct) {
+                    score++
+                }
+                currentQuiz++
+                if (currentQuiz < quizData.length) {
+                    loadQuiz()
+                } else {
+                    quiz.innerHTML = `
+       <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+       <button onclick="location.reload()">Reload</button>
+       `
+                }
+            }
+        })
+
+    </script>
+    </section>
+    <section class="footer">
+
+        <div class="credit">
+            <p>@copyright <span>Mohamed Elloumi</span></p>
+        </div>
+        
+    </section>
+</body>
+</html>
